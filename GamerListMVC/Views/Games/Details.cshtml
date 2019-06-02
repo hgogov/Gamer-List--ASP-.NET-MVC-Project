@@ -1,0 +1,122 @@
+﻿@model GamerListMVC.Models.GameViewModel
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>@Model.Title</h2>
+
+<div>
+	<hr />
+	@using (Html.BeginForm("Details", "Games", FormMethod.Post))
+	{
+		@Html.AntiForgeryToken()
+		<button class="btn btn-primary" onclick="addToList()" id="btnAddToList">Add to List</button>
+		<div class="form-horizontal hidden" id="addToList">
+			<div class="form-group">
+				@Html.Label("Status", htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.DropDownListFor(model => model.SelectedStatus, Model.Statuses, htmlAttributes: new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.SelectedStatus, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.Label("Rate game", htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.DropDownListFor(model => model.SelectedRating, Model.Ratings,@*(Model.SelectedRating == null) ?*@ /**/ "-- Select a rating --" @*: null*@, htmlAttributes: new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.SelectedRating, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<input type="submit" value="Save" class="btn btn-default" />
+				</div>
+			</div>
+		</div>
+	}
+
+	<dl class="dl-horizontal">
+		<dt>
+
+		</dt>
+		<dd>
+			<img style="width: border-box;height: border-box;width: 150px;"
+				 src="~/Images/Game_Cover_Images/@Model.CoverImagePath">
+		</dd>
+		<dt>
+			@Html.DisplayName("Score")
+		</dt>
+
+		<dd>
+			@ViewBag.Score
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Title)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Title)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DeveloperId)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Developer.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.GenreId)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Genre.Type)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Description)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ReleaseDate)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ReleaseDate)
+		</dd>
+
+	</dl>
+</div>
+<p>
+	@if (User.IsInRole("admin"))
+	{
+		@Html.ActionLink("Edit", "edit", new { id = Model.Id })
+	}
+	@Html.ActionLink("Back to List", "index")
+</p>
+
+<script>
+	if (@Model.SelectedStatus != null) { //displays add to list button if game is not added in the users list
+		window.onload = function () {
+			var button = document.getElementById("btnAddToList");
+			button.classList.add("hidden");
+			var div = document.getElementById("addToList");
+			div.classList.remove("hidden");
+		}
+	}
+
+	function addToList() {
+		var div = document.getElementById("addToList");
+		div.classList.remove("hidden");
+		var btnToHide = document.getElementById("btnAddToList");
+		btnToHide.classList.add("hidden");
+	}
+</script>

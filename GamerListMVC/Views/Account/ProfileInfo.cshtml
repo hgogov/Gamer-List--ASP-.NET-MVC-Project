@@ -1,0 +1,33 @@
+﻿@model GamerListMVC.Models.UserProfileViewModel
+
+@{
+    ViewBag.Title = "Profile Info";
+}
+
+<h2>Profile Info</h2>
+
+<div>
+	<hr />
+	<img src="~/Images/User_Profile_Images/@Model.ProfileImagePath">
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.UserName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.UserName)
+		</dd>
+
+	</dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "profilesettings", new { /* id = Model.PrimaryKey */ })
+</p>

@@ -1,0 +1,20 @@
+﻿
+@{
+	ViewBag.Title = "RemoveFromList";
+}
+
+<h3>Are you sure you want to remove this?</h3>
+<div>
+	<hr />
+	<dl class="dl-horizontal">
+
+		@using (Html.BeginForm("RemoveFromList", "Account", FormMethod.Post))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-actions no-color">
+				<input type="submit" value="Remove" class="btn btn-default" /> |
+				@Html.ActionLink("Back to List", "MyList")
+			</div>
+		}
+</div>

@@ -1,0 +1,6 @@
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\bin\Debug\DatabaseStructure.dll
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\bin\Debug\DatabaseStructure.pdb
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\obj\Debug\DatabaseStructure.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\obj\Debug\DatabaseStructure.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\obj\Debug\DatabaseStructure.dll
+C:\Users\Lenovo\source\repos\GamerListMVC\DatabaseStructure\obj\Debug\DatabaseStructure.pdb
