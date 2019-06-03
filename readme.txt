@@ -1,7 +1,7 @@
 Web application in which registered users can keep track of the games they have played by adding them to their list.
 
 Users can:
-- add games to their list and selecting an option of wheter the are currently playing it, have played it or want to play the game.
+- add games to their list by selecting an option of whether they are currently playing the game, have played it or want to play it.
 - give ratings to games
 - upload profile images
 - change email, password, username
